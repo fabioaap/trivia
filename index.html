@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Trivia - Educacross</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="assets/logo.svg" alt="Educacross Logo" class="logo-img">
+                <h1>Educacross</h1>
+            </div>
+            <nav class="nav">
+                <button class="nav-btn">Início</button>
+                <button class="nav-btn">Categorias</button>
+                <button class="nav-btn">Ranking</button>
+                <button class="nav-btn">Perfil</button>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <h2>Bem-vindo ao Trivia Educacross!</h2>
+                <p>Teste seus conhecimentos e divirta-se aprendendo</p>
+                <button class="cta-btn">Começar Jogo</button>
+            </section>
+
+            <!-- Game Area -->
+            <section class="game-area" id="gameArea" style="display: none;">
+                <div class="question-card">
+                    <div class="question-header">
+                        <span class="category">Categoria: <span id="questionCategory">Geral</span></span>
+                        <span class="timer">⏱️ <span id="timer">30</span>s</span>
+                    </div>
+                    <h3 class="question" id="question">Carregando pergunta...</h3>
+                    <div class="options">
+                        <button class="option" data-letter="A">A) </button>
+                        <button class="option" data-letter="B">B) </button>
+                        <button class="option" data-letter="C">C) </button>
+                        <button class="option" data-letter="D">D) </button>
+                    </div>
+                </div>
+
+                <div class="game-info">
+                    <div class="score">Pontuação: <span id="score">0</span></div>
+                    <div class="question-count">Pergunta <span id="currentQuestion">1</span> de <span id="totalQuestions">10</span></div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-card">
+                    <h3>Resultado Final</h3>
+                    <div class="final-score">Pontuação: <span id="finalScore">0</span></div>
+                    <div class="accuracy">Aproveitamento: <span id="accuracy">0%</span></div>
+                    <button class="play-again-btn">Jogar Novamente</button>
+                    <button class="home-btn">Voltar ao Início</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Educacross. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
