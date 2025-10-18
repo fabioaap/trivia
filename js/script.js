@@ -1,3 +1,6 @@
+// Importar sistema de viewport
+import { setupViewport } from "../src/viewportScale.js";
+
 // Estado do jogo
 class TriviaGame {
     constructor() {
@@ -34,10 +37,19 @@ class TriviaGame {
             this.startGame();
         });
 
-        // Botões de opções
+        // Botões de opções com coordenadas convertidas
         this.optionsEl.forEach(option => {
             option.addEventListener('click', (e) => {
                 if (this.gameActive) {
+                    this.selectAnswer(e.target);
+                }
+            });
+
+            // Adicionar suporte para eventos de ponteiro com coordenadas convertidas
+            option.addEventListener('pointerdown', (e) => {
+                if (this.gameActive && window.viewportHandle) {
+                    const gameCoords = window.viewportHandle.toGame(e.clientX, e.clientY);
+                    console.log('Clique convertido:', gameCoords);
                     this.selectAnswer(e.target);
                 }
             });
@@ -338,6 +350,13 @@ class AudioManager {
 
 // Inicialização quando DOM estiver carregado
 document.addEventListener('DOMContentLoaded', () => {
+    // Configurar viewport scaling
+    const canvas = document.getElementById('gameCanvas');
+    if (canvas) {
+        window.viewportHandle = setupViewport(canvas, 1920, 1080, 2);
+        console.log('Viewport configurado:', window.viewportHandle);
+    }
+
     window.triviaGame = new TriviaGame();
     window.audioManager = new AudioManager();
 
