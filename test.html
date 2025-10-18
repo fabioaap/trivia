@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste do Sistema de Palco - Trivia Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+        .info {
+            margin: 20px 0;
+            padding: 10px;
+            background: #e7f3ff;
+            border-left: 4px solid #007bff;
+        }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Teste do Sistema de Palco 1920x1080</h1>
+
+        <div class="info">
+            <h3>✅ Sistema Implementado:</h3>
+            <ul>
+                <li>Palco lógico fixo: 1920x1080</li>
+                <li>Centralização via translate(-50%, -50%)</li>
+                <li>Escala uniforme preservando 16:9</li>
+                <li>Barras pretas em proporções diferentes</li>
+                <li>Conversão de coordenadas de entrada</li>
+                <li>Suporte a devicePixelRatio</li>
+            </ul>
+        </div>
+
+        <h3>🔧 Testes Disponíveis:</h3>
+        <button class="test-button" onclick="test16x9()">Teste 16:9 (1920x1080)</button>
+        <button class="test-button" onclick="test4x3()">Teste 4:3 (1024x768)</button>
+        <button class="test-button" onclick="testMobile()">Teste Mobile (375x667)</button>
+        <button class="test-button" onclick="testUltrawide()">Teste Ultrawide (2560x1080)</button>
+
+        <div class="info">
+            <p><strong>Instruções:</strong> Clique nos botões acima para redimensionar a janela e testar diferentes proporções. Observe:</p>
+            <ul>
+                <li>Em 16:9: palco preenche toda a tela sem barras</li>
+                <li>Em outras proporções: barras pretas aparecem nas laterais</li>
+                <li>Palco sempre centralizado e com proporção 16:9 preservada</li>
+                <li>Clique nas opções do quiz para testar coordenadas</li>
+            </ul>
+        </div>
+
+        <h3>📊 Console:</h3>
+        <p>Abra o console (F12) para ver os logs de debug que mostram:</p>
+        <ul>
+            <li>Dimensões da janela</li>
+            <li>Dimensões do palco escalado</li>
+            <li>Fator de escala aplicado</li>
+            <li>Largura das barras laterais</li>
+        </ul>
+
+        <iframe src="index.html" id="gameFrame"></iframe>
+    </div>
+
+    <script>
+        function test16x9() {
+            window.resizeTo(1920, 1080);
+            console.log('🖥️ Teste 16:9 - Deve ficar sem barras pretas');
+        }
+
+        function test4x3() {
+            window.resizeTo(1024, 768);
+            console.log('📺 Teste 4:3 - Deve ter barras laterais largas');
+        }
+
+        function testMobile() {
+            window.resizeTo(375, 667);
+            console.log('📱 Teste Mobile - Deve ter barras laterais');
+        }
+
+        function testUltrawide() {
+            window.resizeTo(2560, 1080);
+            console.log('🖥️ Teste Ultrawide - Deve ter barras superior/inferior');
+        }
+
+        // Monitorar mudanças de tamanho
+        window.addEventListener('resize', function() {
+            setTimeout(() => {
+                console.log('🔄 Janela redimensionada:', {
+                    width: window.innerWidth,
+                    height: window.innerHeight,
+                    ratio: (window.innerWidth / window.innerHeight).toFixed(2)
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>
