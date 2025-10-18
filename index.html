@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -7,71 +7,133 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="logo">
-                <img src="assets/logo.svg" alt="Educacross Logo" class="logo-img">
-                <h1>Educacross</h1>
-            </div>
-            <nav class="nav">
-                <button class="nav-btn">Início</button>
-                <button class="nav-btn">Categorias</button>
-                <button class="nav-btn">Ranking</button>
-                <button class="nav-btn">Perfil</button>
-            </nav>
-        </header>
+    <div class="viewport-container">
+        <canvas id="gameCanvas" class="game-canvas"></canvas>
+        <div class="app-stage">
+            <div class="app-canvas">
+            <header class="game-menu">
+                <div class="menu-cluster menu-left">
+                    <button class="menu-btn" aria-label="Voltar">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M15 5L8 12L15 19" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="menu-btn" aria-label="Início">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M3 9L12 3L21 9V20C21 20.55 20.78 21.05 20.41 21.42C20.04 21.79 19.53 22 19 22H5C4.47 22 3.96 21.79 3.59 21.42C3.22 21.05 3 20.55 3 20V9Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+                            <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
 
-        <!-- Main Content -->
-        <main class="main">
-            <!-- Welcome Section -->
-            <section class="welcome-section">
-                <h2>Bem-vindo ao Trivia Educacross!</h2>
-                <p>Teste seus conhecimentos e divirta-se aprendendo</p>
-                <button class="cta-btn">Começar Jogo</button>
-            </section>
-
-            <!-- Game Area -->
-            <section class="game-area" id="gameArea" style="display: none;">
-                <div class="question-card">
-                    <div class="question-header">
-                        <span class="category">Categoria: <span id="questionCategory">Geral</span></span>
-                        <span class="timer">⏱️ <span id="timer">30</span>s</span>
-                    </div>
-                    <h3 class="question" id="question">Carregando pergunta...</h3>
-                    <div class="options">
-                        <button class="option" data-letter="A">A) </button>
-                        <button class="option" data-letter="B">B) </button>
-                        <button class="option" data-letter="C">C) </button>
-                        <button class="option" data-letter="D">D) </button>
+                <div class="menu-center">
+                    <div class="menu-title">EXTREME TRÍVIA</div>
+                    <div class="menu-progress" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-track">
+                            <div class="progress-fill" style="--progress:65%;"></div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="game-info">
-                    <div class="score">Pontuação: <span id="score">0</span></div>
-                    <div class="question-count">Pergunta <span id="currentQuestion">1</span> de <span id="totalQuestions">10</span></div>
+                <div class="menu-logo">
+                    <img src="assets/images/Logo.svg" alt="Logo Extreme Trívia">
                 </div>
-            </section>
 
-            <!-- Results Section -->
-            <section class="results-section" id="resultsSection" style="display: none;">
-                <div class="results-card">
-                    <h3>Resultado Final</h3>
-                    <div class="final-score">Pontuação: <span id="finalScore">0</span></div>
-                    <div class="accuracy">Aproveitamento: <span id="accuracy">0%</span></div>
-                    <button class="play-again-btn">Jogar Novamente</button>
-                    <button class="home-btn">Voltar ao Início</button>
+                <div class="menu-timer">
+                    <div class="timer-chip">
+                        <span class="timer-circle">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                                <path d="M12 7V12L15 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="timer-value">01:30</span>
+                    </div>
                 </div>
-            </section>
-        </main>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2025 Educacross. Todos os direitos reservados.</p>
-        </footer>
+                <div class="menu-cluster menu-right">
+                    <button class="menu-btn" aria-label="Moedas">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                            <path d="M8.5 12H15.5M12 8.5V15.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <button class="menu-btn" aria-label="Impulso">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M13 2L6 14H12L11 22L18 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="menu-btn" aria-label="Ajuda">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                            <path d="M9.5 9.5C9.5 8.11929 10.6193 7 12 7C13.3807 7 14.5 8.11929 14.5 9.5C14.5 11 12 11.5 12 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="12" cy="17" r="1" fill="currentColor"/>
+                        </svg>
+                    </button>
+                    <button class="menu-btn" aria-label="Configurações">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M19.4 15A1.65 1.65 0 0119.73 16.9L20 17.76A2 2 0 0118.24 20L17.38 19.73A1.65 1.65 0 0115 20.4L14.6 21.2A2 2 0 0110.4 21.2L10 20.4A1.65 1.65 0 018.62 19.73L7.76 20A2 2 0 016 17.24L6.27 16.38A1.65 1.65 0 014.6 15L3.8 14.6A2 2 0 013.8 10.4L4.6 10A1.65 1.65 0 016.27 8.6L6 7.76A2 2 0 017.76 6L8.62 6.27A1.65 1.65 0 0110 4.6L10.4 3.8A2 2 0 0114.6 3.8L15 4.6A1.65 1.65 0 0116.38 5.27L17.24 5A2 2 0 0119 7.76L18.73 8.62A1.65 1.65 0 0120.4 10L21.2 10.4A2 2 0 0121.2 14.6L20.4 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="menu-btn" aria-label="Pausar">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <rect x="8" y="6" width="3" height="12" rx="1.5" fill="currentColor"/>
+                            <rect x="13" y="6" width="3" height="12" rx="1.5" fill="currentColor"/>
+                        </svg>
+                    </button>
+                </div>
+            </header>
+
+            <main class="app-content">
+                <section class="game-area-quiz">
+                    <div class="quiz-container">
+                        <div class="question-card-quiz">
+                            <h2 class="question-title">Em qual frase há um erro de concordância verbal?</h2>
+                        </div>
+
+                        <div class="options-diamond">
+                            <div class="option-item top-option">
+                                <button class="option-btn-quiz" data-correct="false">
+                                    Pedro e Ana viajaram nas férias.
+                                </button>
+                            </div>
+
+                            <div class="option-item left-option">
+                                <button class="option-btn-quiz" data-correct="false">
+                                    Ela gosta de ler livros de aventura.
+                                </button>
+                            </div>
+
+                            <div class="option-item right-option">
+                                <button class="option-btn-quiz" data-correct="false">
+                                    Nós fomos ao parque ontem.
+                                </button>
+                            </div>
+
+                            <div class="diamond-center">
+                                <div class="dpad-container">
+                                    <img src="assets/images/controle central.svg" alt="Controle central" class="dpad-image" loading="lazy">
+                                </div>
+                            </div>
+
+                            <div class="option-item bottom-option">
+                                <button class="option-btn-quiz" data-correct="true">
+                                    As crianças brinca no pátio da escola.
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="footer">
+                <p>&copy; 2025 Educacross. Todos os direitos reservados.</p>
+            </footer>
+        </div>
     </div>
 
     <script src="js/script.js"></script>

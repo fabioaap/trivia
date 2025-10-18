@@ -1,0 +1,23 @@
+{
+  "name": "trivia",
+  "version": "1.0.0",
+  "description": "Um jogo de trivia educativo desenvolvido com HTML, CSS e JavaScript moderno.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabioaap/trivia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fabioaap/trivia/issues"
+  },
+  "homepage": "https://github.com/fabioaap/trivia#readme",
+  "dependencies": {
+    "ws": "^8.18.3"
+  }
+}
