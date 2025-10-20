@@ -95,43 +95,48 @@
                             <h2 class="question-title">Em qual frase há um erro de concordância verbal?</h2>
                         </div>
 
-                        <div class="options-diamond">
-                            <div class="option-item top-option">
-                                <button class="option-btn-quiz" data-correct="false">
-                                    Pedro e Ana viajaram nas férias.
-                                </button>
-                            </div>
-
-                            <div class="option-item left-option">
-                                <button class="option-btn-quiz" data-correct="false">
-                                    Ela gosta de ler livros de aventura.
-                                </button>
-                            </div>
-
-                            <div class="option-item right-option">
-                                <button class="option-btn-quiz" data-correct="false">
-                                    Nós fomos ao parque ontem.
-                                </button>
-                            </div>
-
-                            <div class="diamond-center">
-                                <div class="dpad-container">
-                                    <img src="assets/images/controle central.svg" alt="Controle central" class="dpad-image" loading="lazy">
-                                </div>
-                            </div>
-
-                            <div class="option-item bottom-option">
-                                <button class="option-btn-quiz" data-correct="true">
-                                    As crianças brinca no pátio da escola.
-                                </button>
-                            </div>
+                        <div class="options-grid">
+                            <button class="option-btn-quiz" data-correct="false">
+                                Ela gosta de ler livros de aventura.
+                            </button>
+                            <button class="option-btn-quiz" data-correct="false">
+                                Nós fomos ao parque ontem.
+                            </button>
+                            <button class="option-btn-quiz" data-correct="true">
+                                As crianças brinca no pátio da escola.
+                            </button>
+                            <button class="option-btn-quiz" data-correct="false">
+                                Pedro e Ana viajaram nas férias.
+                            </button>
                         </div>
                     </div>
                 </section>
             </main>
 
-            <footer class="footer">
-                <p>&copy; 2025 Educacross. Todos os direitos reservados.</p>
+            <footer class="powerups-bar">
+                <div class="powerup-option powerup-remove">
+                    <span class="powerup-count">0</span>
+                    <span class="powerup-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M9 3H15L16 5H20V7H4V5H8L9 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                            <path d="M6 7L7 20C7 21.1 7.9 22 9 22H15C16.1 22 17 21.1 17 20L18 7" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                            <path d="M10 11V17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            <path d="M14 11V17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                    <span class="powerup-label">REMOVER ALTERNATIVA</span>
+                </div>
+                <div class="powerup-divider" aria-hidden="true"></div>
+                <div class="powerup-option powerup-skip">
+                    <span class="powerup-count">3</span>
+                    <span class="powerup-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M5 4V20L15 12L5 4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                            <rect x="17" y="4" width="2" height="16" rx="1" fill="currentColor"/>
+                        </svg>
+                    </span>
+                    <span class="powerup-label">PULAR QUESTÃO</span>
+                </div>
             </footer>
         </div>
     </div>
